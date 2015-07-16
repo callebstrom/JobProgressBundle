@@ -11,4 +11,10 @@ class JobProgressController extends Controller
     {
         return $this->render('JPBundle:Default:index.html.twig');
     }
+
+    public function progressAllAction(Request $request)
+    {
+        return $this->render('JPBundle:Default:index.html.twig');
+    }
+
 }
