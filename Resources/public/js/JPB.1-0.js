@@ -40,16 +40,24 @@ JPBEvent.prototype.on = function(event, callback) {
 
 
 JPBProgressBar = function(config) {
-
 	cfg = config;
 
 	// Init event handling system for JPBProgressBar
 	jpbe = new JPBEvent();
+
+	// Loops the function fn with delay d
+	function loopWithDelay(fn, d)
+	{
+	    fn();
+	    setTimeout(function() {
+	        loopn(fn, d);
+	    }, d);
+	}
 }
 
 // Public wrapper to bind event listeners
-JPBProgressBar.prototype.on = function(event, callback) {
-	jpbe.on(event, callback);
+JPBProgressBar.prototype.on = function(e, c) {
+	jpbe.on(e, c);
 }
 
 // Start refreshing progress. Ajax refresh towards /jpb/progress/user or /jpb/progress/all depending on config
