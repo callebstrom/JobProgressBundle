@@ -1,0 +1,30 @@
+{
+    "name" : "company/demobundle",
+    "description" : "A demo bundle",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "demo",
+        "email" : "demo@company.com"
+    }],
+    "keywords" : [
+        "demo bundle"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Company\\DemoBundle" : ""
+        }
+    },
+    "target-dir" : "Company/DemoBundle",
+    "repositories" : [{
+    }],
+    "extra" : {
+    "branch-alias" : {
+            "dev-master" : "some_version-dev"
+        }
+    }
+}
