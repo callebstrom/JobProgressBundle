@@ -1,26 +1,29 @@
 {
-    "name" : "company/demobundle",
-    "description" : "A demo bundle",
+    "name" : "callebstrom/JPBundle",
+    "description" : "A complete bundle for keeping track of running jobs",
     "type" : "symfony-bundle",
     "authors" : [{
-        "name" : "demo",
-        "email" : "demo@company.com"
+        "name" : "Carl-Erik Bergström",
+        "email" : "calle.bergstrom@live.se"
     }],
     "keywords" : [
-        "demo bundle"
+        "Job Progress Bundle"
     ],
     "license" : [
         "MIT"
     ],
     "require" : {
+	"symfony/symfony" : "dev-2.4.x"
     },
     "autoload" : {
         "psr-0" : {
-            "Company\\DemoBundle" : ""
+            "callebstrom\\JPBundle" : ""
         }
     },
-    "target-dir" : "Company/DemoBundle",
+    "target-dir" : "callebstrom/JPBundle",
     "repositories" : [{
+            "type": "vcs",
+            "url": "https://github.com/callebstrom/JobProgressBundle"
     }],
     "extra" : {
     "branch-alias" : {
