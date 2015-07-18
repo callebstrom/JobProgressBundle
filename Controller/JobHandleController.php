@@ -19,7 +19,27 @@ class JobHandleController extends Controller
 	// Var that stores the job id
 	private $jobId = null;
 
-	public function addProgressAction() {
+	public function addProgressAction($progress) {
+		
+		// Get Doctrine entity manager
+		$em = $this->getDoctrine()->getEntityManager();
+
+		// Fetch the job entity
+		$job = $em->getRepository('callebstromJPBundle:Job')->find($this->jobId);
+
+		// Get current progress of entity
+		$currentProgress = $job->getProgress();
+
+		// If total progress after addition is above 100%, do nothing
+		if($progress + $currentProgress >= 1) {
+
+		} else {
+			// Else add the progress
+			$job->setProgress($progress + $currentProgress);
+		}
+
+		// Store the changes
+		$em->flush();
 
 	}
 
