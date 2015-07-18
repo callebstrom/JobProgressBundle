@@ -1,7 +1,7 @@
 jp_job_progress:
-    path:     /jp/progress
-    defaults: { _controller: JPBundle:JobProgress:progress }
+    path:     /jp/progress/user
+    defaults: { _controller: JPBundle:JobProgress:getProgress }
 
 jp_job_progress_all:
     path:     /jp/progress/all
-    defaults: { _controller: JPBundle:JobProgress:progressAll }
+    defaults: { _controller: JPBundle:JobProgress:getProgressAll }
