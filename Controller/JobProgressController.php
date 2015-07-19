@@ -12,16 +12,16 @@ use Symfony\Component\HttpFoundation\Request;
 class JobProgressController extends Controller
 {
 
-	// Action for /progress/user
-    public function getProgressAction(Request $request)
+	// Action for /jpb/progress/user
+    public function getProgressUserAction(Request $request)
     {
-        return $this->render('JPBundle:Default:index.html.twig');
+
     }
 
-    // Action for /progress/all
+    // Action for /jpb/progress/all
     public function getProgressAllAction(Request $request)
     {
-        return $this->render('JPBundle:Default:index.html.twig');
+
     }
 
 }
