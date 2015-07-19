@@ -212,4 +212,18 @@ class Job
     {
         return $this->username;
     }
+
+    public function toArr() {
+        $retArr = array(
+            "id" => $this->getId(),
+            "type" => $this->getType(),
+            "progress" => $this->getProgress(),
+            "startdate" => $this->getStartdate(),
+            "enddate" => $this->getEnddate(),
+            "result" => $this->getResult(),
+            "username" => $this->getUsername()
+        );
+
+        return $retArr;
+    }
 }
