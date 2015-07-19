@@ -4,4 +4,12 @@ jp_job_progress:
 
 jp_job_progress_all:
     path:     /jpb/progress/all
-    defaults: { _controller: JPBundle:JobProgress:getProgressAll }
+    defaults: { _controller: JPBundle:JobHandle:getProgressAll }
+
+jp_job_kill:
+    path:    /jpb/kill/{job_id}
+    defaults: { _controller: JPBundle:JobHandle:kill }
+
+jp_job_suspend:
+    path:    /jpb/suspend/{job_id}
+    defaults: { _controller: JPBundle:JobHandle:suspend }

@@ -63,6 +63,13 @@ class Job
      */
     private $result;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="isAborted", type="boolean")
+     */
+    private $isAborted;
+
 
     /**
      * Get id
@@ -211,6 +218,30 @@ class Job
     public function getUsername()
     {
         return $this->username;
+    }
+
+
+    /**
+     * Set isAborted
+     *
+     * @param string $username
+     * @return Job
+     */
+    public function setIsAborted($isAborted)
+    {
+        $this->isAborted = $isAborted;
+
+        return $this;
+    }
+
+    /**
+     * Get isAborted
+     *
+     * @return string 
+     */
+    public function getIsAborted()
+    {
+        return $this->isAborted;
     }
 
     public function toArr() {
