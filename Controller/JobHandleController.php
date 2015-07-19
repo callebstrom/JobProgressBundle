@@ -19,7 +19,7 @@ class JobHandleController extends Controller
 	// Var that stores the job id
 	private $jobId = null;
 
-	public function addProgressAction($progress) {
+	public function addProgress($progress) {
 		
 		// Get Doctrine entity manager
 		$em = $this->getDoctrine()->getEntityManager();
@@ -43,12 +43,27 @@ class JobHandleController extends Controller
 
 	}
 
-	public function finishJobAction() {
+	public function finishJob() {
+
+		// Get Doctrine entity manager
+		$em = $this->getDoctrine()->getEntityManager();
+
+		// Fetch the job entity
+		$job = $em->getRepository('JPBundle:Job')->find($this->jobId);
+
+		// Track object
+		$em->persist($job);
+
+		// Set progress to 100%
+		$job->setProgress(1);
+
+		// Store the Job entity in the DB
+		$em->flush();
 
 	}
 
 	// Func that inits new job with custom type 
-	public function initJobAction($type) {
+	public function initJob($type) {
 
 		$em = $this->getDoctrine()->getEntityManager();
 
@@ -56,7 +71,7 @@ class JobHandleController extends Controller
 		$job = new Job();
 
 		// Track object
-
+		$em->persist($job);
 
 		// Set progress to 0
 		$job->setProgress(0.0);
@@ -67,7 +82,6 @@ class JobHandleController extends Controller
 		// Set startdate to current datetime using MySQL DATETIME format
 		$job->setStartDate(date_create(date("Y-m-d H:i:s")));
 
-		$em->persist($job);
 		// Store the Job entity in the DB
 		$em->flush();
 
