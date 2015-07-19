@@ -27,22 +27,11 @@ class JobHandleController extends Controller
 	######################
 
 	public function killAction(Request $request) {
-
-		$event = new JobEvent(); 
-        $dispatcher = $this->get('event_dispatcher'); 
-        $dispatcher->dispatch('jpb.events.job_aborted', $event);
-
         return new Response("aja");
 	}
 
 	public function suspendAction(Request $request) {
-
-		$event = new JobEvent(); 
-        $dispatcher = $this->get('event_dispatcher'); 
-        $dispatcher->dispatch('jpb.events.job_suspended', $event);
-
         return new Response("aja");
-
 	}
 
 	// Var that stores the job id

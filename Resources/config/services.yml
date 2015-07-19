@@ -7,9 +7,3 @@ services:
         class: callebstrom\JPBundle\Controller\JobHandleController
         calls:
             - [setContainer, ["@service_container"]]
-
-    kernel.listener.job_event_listener:
-        class: callebstrom\JPBundle\Events\JobEventListener
-        tags:
-            - { name: kernel.event_listener, event: jpb.events.job_aborted, method: onJobAborted }
-            - { name: kernel.event_listener, event: jpb.events.job_suspended, method: onJobSuspended }
