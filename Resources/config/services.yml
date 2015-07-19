@@ -2,3 +2,8 @@ services:
 #    jp.example:
 #        class: callebstrom\JPBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+
+    job_handle_service:
+        class: callebstrom\JPBundle\Controller\JobHandleController
+        calls:
+            - [setContainer, ["@service_container"]]
