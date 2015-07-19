@@ -30,6 +30,13 @@ class Job
 
     /**
      * @var string
+     *  
+     * @ORM\Column(name="username", type="string", length=255)
+     */
+    private $username;
+
+    /**
+     * @var string
      *
      * @ORM\Column(name="progress", type="decimal")
      */
@@ -180,5 +187,29 @@ class Job
     public function getResult()
     {
         return $this->result;
+    }
+
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     * @return Job
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string 
+     */
+    public function getUsername()
+    {
+        return $this->username;
     }
 }

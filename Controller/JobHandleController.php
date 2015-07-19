@@ -65,6 +65,9 @@ class JobHandleController extends Controller
 	// Func that inits new job with custom type 
 	public function initJob($type) {
 
+		// Fetch current user's username via security service
+		$username = $this->getUser();
+
 		$em = $this->getDoctrine()->getEntityManager();
 
 		// Init new job
@@ -78,6 +81,10 @@ class JobHandleController extends Controller
 		
 		// Set Job type based on arg
 		$job->setType("");
+
+		// Set username of user who started the job
+		//$job->setUsername($username);
+		$job->setUsername("test_user");
 		
 		// Set startdate to current datetime using MySQL DATETIME format
 		$job->setStartDate(date_create(date("Y-m-d H:i:s")));
