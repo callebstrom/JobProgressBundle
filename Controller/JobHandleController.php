@@ -50,22 +50,26 @@ class JobHandleController extends Controller
 	// Func that inits new job with custom type 
 	public function initJobAction($type) {
 
+		$em = $this->getDoctrine()->getEntityManager();
+
 		// Init new job
 		$job = new Job();
 
+		// Track object
+
+
 		// Set progress to 0
-		$job->setProgress = 0;
+		$job->setProgress(0.0);
 		
 		// Set Job type based on arg
-		$job->setType($type);
+		$job->setType("");
 		
 		// Set startdate to current datetime using MySQL DATETIME format
-		$job->setStartDate(date("Y-m-d H:i:s"));
+		$job->setStartDate(date_create(date("Y-m-d H:i:s")));
 
+		$em->persist($job);
 		// Store the Job entity in the DB
-		$em = $this->getDoctrine()->getEntityManager();
-				$em->persist($job);
-				$em->flush();
+		$em->flush();
 
 		// Set the job ID if Doctrine successfully stored the object
 		$this->jobId = $job->getId();
