@@ -1,1 +1,1 @@
-# JobProgressBundle
+# JobProgressBundle for Symfony2
